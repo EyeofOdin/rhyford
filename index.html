@@ -19,7 +19,7 @@
     
     /* Gallery */
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 30px 0; }
-    .gallery canvas { width: 100%; height: 180px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: block; }
+    .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: block; }
     
     /* Services */
     .section-title { text-align: center; margin: 40px 0 25px; color: #0f172a; font-size: 2rem; }
@@ -84,8 +84,11 @@
   <div class="container">
     <!-- GALLERY -->
     <h2 class="section-title">Our Work</h2>
-    <div class="gallery" id="imageGallery">
-      <!-- Canvas images will be inserted here by JavaScript -->
+    <div class="gallery">
+      <img src="panel.jpg" alt="Electrical Panel Installation">
+      <img src="industrial.jpg" alt="Industrial Wiring">
+      <img src="residential.jpg" alt="Residential Electrical Work">
+      <img src="tools.jpg" alt="Electrical Tools and Equipment">
     </div>
 
     <!-- SERVICES -->
@@ -234,76 +237,6 @@
   </footer>
 
   <script>
-    // Generate abstract electrical-themed images using Canvas
-    function generateImage(container, title) {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = 300;
-      canvas.height = 180;
-      
-      // Background gradient
-      const grad = ctx.createLinearGradient(0, 0, 0, 180);
-      if (title.includes('Panel')) {
-        grad.addColorStop(0, '#1e3a8a');
-        grad.addColorStop(1, '#3b82f6');
-      } else if (title.includes('Industrial')) {
-        grad.addColorStop(0, '#78716c');
-        grad.addColorStop(1, '#a8a29e');
-      } else if (title.includes('Residential')) {
-        grad.addColorStop(0, '#065f46');
-        grad.addColorStop(1, '#10b981');
-      } else {
-        grad.addColorStop(0, '#7c2d12');
-        grad.addColorStop(1, '#ea580c');
-      }
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, 300, 180);
-      
-      // Draw abstract shapes
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
-      for (let i = 0; i < 8; i++) {
-        const x = Math.random() * 300;
-        const y = Math.random() * 180;
-        const w = 20 + Math.random() * 40;
-        const h = 5 + Math.random() * 15;
-        ctx.fillRect(x, y, w, h);
-      }
-      
-      // Draw circuit-like lines
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(20, 30);
-      ctx.lineTo(80, 30);
-      ctx.lineTo(80, 60);
-      ctx.lineTo(140, 60);
-      ctx.stroke();
-      
-      // Add icon
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.font = 'bold 40px Arial';
-      if (title.includes('Panel')) ctx.fillText('⚡', 220, 100);
-      else if (title.includes('Industrial')) ctx.fillText('🏭', 220, 100);
-      else if (title.includes('Residential')) ctx.fillText('🏠', 220, 100);
-      else ctx.fillText('🔧', 220, 100);
-      
-      container.appendChild(canvas);
-    }
-
-    // Create gallery
-    const gallery = document.getElementById('imageGallery');
-    const titles = [
-      "Electrical Panel Installation",
-      "Industrial Wiring",
-      "Residential Electrical Work",
-      "Electrical Tools and Equipment"
-    ];
-    
-    titles.forEach(title => {
-      generateImage(gallery, title);
-    });
-
-    // Email form
     document.getElementById('emailForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value;
