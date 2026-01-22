@@ -137,14 +137,17 @@
       <p>Nation-wide assistance</p>
     </div>
 
+    <!-- CONTACT SECTION WITH WORKING FORM -->
     <div class="contact-section">
       <h2>Contact Us</h2>
       <div class="contact-grid">
         <div class="contact-form">
-          <form id="emailForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Describe your electrical or solar needs..." required></textarea>
+          <form action="https://formspree.io/f/rhyford-electrical-2026" method="POST">
+            <input type="hidden" name="_replyto" value="lenkwemalema@gmail.com">
+            <input type="hidden" name="_subject" value="New Inquiry from RHYFORD Website">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Describe your electrical or solar needs..." required></textarea>
             <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
           </form>
         </div>
@@ -203,20 +206,5 @@
     <p>We do our best for the best of our service.<br>
     Trust our team for expert electrical and solar solutions tailored to your needs and budget.</p>
   </footer>
-
-  <script>
-    document.getElementById('emailForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      
-      const recipient = "lenkwemalema@gmail.com";
-      const subject = encodeURIComponent(`New Inquiry from Website - ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-      
-      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    });
-  </script>
 </body>
 </html>
