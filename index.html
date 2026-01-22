@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rhyford Electrical</title>
+  <title>Rhyford Electrical Maintenance and Project</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background: #f5f7fa; color: #333; line-height: 1.6; }
+    body { background: #f9fafb; color: #1e293b; line-height: 1.6; }
     header { 
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3') no-repeat center center/cover;
-      height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; 
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+      height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; 
     }
-    .hero-content h1 { font-size: 2.4rem; margin-bottom: 1rem; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
-    .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
-    .container { max-width: 1200px; margin: -50px auto 40px; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 40px; }
+    .hero-content h1 { font-size: 2.8rem; margin-bottom: 1rem; text-shadow: 0 2px 6px rgba(0,0,0,0.7); }
+    .hero-content p { font-size: 1.3rem; max-width: 800px; margin: 0 auto; opacity: 0.95; }
+    
+    .container { max-width: 1200px; margin: -60px auto 40px; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 40px; }
+    
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 30px 0; }
+    .gallery canvas { width: 100%; height: 180px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: block; }
+    
+    /* Services */
+    .section-title { text-align: center; margin: 40px 0 25px; color: #0f172a; font-size: 2rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    .service-card { background: #f8fafc; padding: 22px; border-radius: 12px; border-left: 4px solid #3b82f6; transition: transform 0.2s; }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .service-card h3 { margin-bottom: 10px; color: #1e40af; font-size: 1.2rem; }
+    .service-card p { font-size: 0.95rem; color: #475569; }
+    
+    /* Info Grid */
     .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 30px 0; }
-    .info-card { background: #f8fafc; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #e2e8f0; }
+    .info-card { background: #f1f5f9; padding: 22px; border-radius: 12px; text-align: center; }
     .info-card i { font-size: 2.2rem; color: #3b82f6; margin-bottom: 15px; }
-    .map-container { height: 350px; border-radius: 12px; overflow: hidden; margin-top: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    
+    .map-container { height: 350px; border-radius: 12px; overflow: hidden; margin: 30px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     
     /* Contact Section */
-    .contact-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; }
-    .contact-section h2 { text-align: center; margin-bottom: 25px; color: #1e293b; }
+    .contact-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0; }
+    .contact-section h2 { text-align: center; margin-bottom: 25px; color: #0f172a; }
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
     .contact-form input,
     .contact-form textarea {
@@ -35,7 +51,7 @@
       transition: background 0.3s;
     }
     .contact-form button:hover { background: #2563eb; }
-    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-info { display: flex; flex-direction: column; gap: 22px; }
     .contact-item { display: flex; align-items: flex-start; gap: 15px; }
     .contact-icon { 
       width: 50px; height: 50px; background: #dbeafe; border-radius: 50%; 
@@ -49,10 +65,10 @@
     }
     .whatsapp-btn:hover { background: #128C7E; }
     
-    footer { text-align: center; padding: 20px; color: #64748b; font-size: 0.95rem; margin-top: 20px; }
+    footer { text-align: center; padding: 25px; color: #64748b; font-size: 0.95rem; margin-top: 20px; background: #f8fafc; }
     @media (max-width: 600px) {
-      .hero-content h1 { font-size: 1.8rem; }
-      .hero-content p { font-size: 1rem; }
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content p { font-size: 1.1rem; }
       .container { padding: 20px; }
     }
   </style>
@@ -66,6 +82,66 @@
   </header>
 
   <div class="container">
+    <!-- GALLERY -->
+    <h2 class="section-title">Our Work</h2>
+    <div class="gallery" id="imageGallery">
+      <!-- Canvas images will be inserted here by JavaScript -->
+    </div>
+
+    <!-- SERVICES -->
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Residential Wiring</h3>
+        <p>New installations, renovations, and upgrades for homes and apartments compliant with SANS 10142.</p>
+      </div>
+      <div class="service-card">
+        <h3>Commercial Electrical Systems</h3>
+        <p>Full electrical installations for offices, shops, warehouses, and industrial facilities.</p>
+      </div>
+      <div class="service-card">
+        <h3>DB Board Upgrades</h3>
+        <p>Modernization of old distribution boards to current standards with earth leakage protection.</p>
+      </div>
+      <div class="service-card">
+        <h3>Emergency Repairs</h3>
+        <p>24/7 call-out service for power failures, tripping circuits, and electrical emergencies.</p>
+      </div>
+      <div class="service-card">
+        <h3>Lighting Installations</h3>
+        <p>Indoor and outdoor lighting solutions including LED retrofits and energy-efficient systems.</p>
+      </div>
+      <div class="service-card">
+        <h3>Generator & Inverter Setup</h3>
+        <p>Installation and integration of backup power systems for load-shedding resilience.</p>
+      </div>
+      <div class="service-card">
+        <h3>Electric Fence Maintenance</h3>
+        <p>Repair, testing, and certification of security electric fencing systems.</p>
+      </div>
+      <div class="service-card">
+        <h3>Prepaid Meter Installation</h3>
+        <p>Legal and certified prepaid electricity meter installations for residential and commercial use.</p>
+      </div>
+      <div class="service-card">
+        <h3>Earthing & Lightning Protection</h3>
+        <p>Complete earthing systems and surge protection for property and equipment safety.</p>
+      </div>
+      <div class="service-card">
+        <h3>Load Shedding Solutions</h3>
+        <p>Customized UPS, inverter, and battery systems to keep essential appliances running.</p>
+      </div>
+      <div class="service-card">
+        <h3>Electrical Compliance Certificates</h3>
+        <p>Issuance of Certificate of Compliance (CoC) for property sales, rentals, or insurance.</p>
+      </div>
+      <div class="service-card">
+        <h3>Motor & Pump Wiring</h3>
+        <p>Installation and maintenance of borehole pumps, gate motors, and industrial motors.</p>
+      </div>
+    </div>
+
+    <!-- INFO GRID -->
     <div class="info-grid">
       <div class="info-card">
         <i class="fas fa-map-marker-alt"></i>
@@ -74,17 +150,17 @@
       </div>
       <div class="info-card">
         <i class="fas fa-phone"></i>
-        <h3>Call Us</h3>
+        <h3>Primary Phone</h3>
         <p>084 335 3545</p>
       </div>
       <div class="info-card">
-        <i class="fas fa-bolt"></i>
-        <h3>Services</h3>
-        <p>Maintenance • Repairs • Installations • Project Wiring</p>
+        <i class="fas fa-phone-alt"></i>
+        <h3>Alternative Phone</h3>
+        <p>073 981 7881</p>
       </div>
     </div>
 
-    <!-- MAP EMBED FOR BOIPATONG -->
+    <!-- MAP -->
     <div class="map-container">
       <iframe 
         src="https://www.google.com/maps/embed/v1/place?q=647+Majola+St,+Boipatong,+Vanderbijlpark,+1901&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" 
@@ -123,20 +199,20 @@
               <i class="fas fa-phone"></i>
             </div>
             <div>
-              <h3>Phone</h3>
+              <h3>Primary Phone</h3>
               <p><strong>084 335 3545</strong></p>
+              <a href="https://wa.me/27843353545" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+              </a>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">
-              <i class="fab fa-whatsapp"></i>
+              <i class="fas fa-phone-alt"></i>
             </div>
             <div>
-              <h3>WhatsApp</h3>
-              <p>Chat or call instantly</p>
-              <a href="https://wa.me/27843353545" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp Us
-              </a>
+              <h3>Alternative Phone</h3>
+              <p><strong>073 981 7881</strong> (Not for WhatsApp)</p>
             </div>
           </div>
           <div class="contact-item">
@@ -154,10 +230,80 @@
   </div>
 
   <footer>
-    <p>Rhyford Electrical Maintenance and Project • Boipatong, Vanderbijlpark</p>
+    <p>Rhyford Electrical Maintenance and Project • Registered Electrical Contractor • Boipatong, Vanderbijlpark</p>
   </footer>
 
   <script>
+    // Generate abstract electrical-themed images using Canvas
+    function generateImage(container, title) {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = 300;
+      canvas.height = 180;
+      
+      // Background gradient
+      const grad = ctx.createLinearGradient(0, 0, 0, 180);
+      if (title.includes('Panel')) {
+        grad.addColorStop(0, '#1e3a8a');
+        grad.addColorStop(1, '#3b82f6');
+      } else if (title.includes('Industrial')) {
+        grad.addColorStop(0, '#78716c');
+        grad.addColorStop(1, '#a8a29e');
+      } else if (title.includes('Residential')) {
+        grad.addColorStop(0, '#065f46');
+        grad.addColorStop(1, '#10b981');
+      } else {
+        grad.addColorStop(0, '#7c2d12');
+        grad.addColorStop(1, '#ea580c');
+      }
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 300, 180);
+      
+      // Draw abstract shapes
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+      for (let i = 0; i < 8; i++) {
+        const x = Math.random() * 300;
+        const y = Math.random() * 180;
+        const w = 20 + Math.random() * 40;
+        const h = 5 + Math.random() * 15;
+        ctx.fillRect(x, y, w, h);
+      }
+      
+      // Draw circuit-like lines
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(20, 30);
+      ctx.lineTo(80, 30);
+      ctx.lineTo(80, 60);
+      ctx.lineTo(140, 60);
+      ctx.stroke();
+      
+      // Add icon
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.font = 'bold 40px Arial';
+      if (title.includes('Panel')) ctx.fillText('⚡', 220, 100);
+      else if (title.includes('Industrial')) ctx.fillText('🏭', 220, 100);
+      else if (title.includes('Residential')) ctx.fillText('🏠', 220, 100);
+      else ctx.fillText('🔧', 220, 100);
+      
+      container.appendChild(canvas);
+    }
+
+    // Create gallery
+    const gallery = document.getElementById('imageGallery');
+    const titles = [
+      "Electrical Panel Installation",
+      "Industrial Wiring",
+      "Residential Electrical Work",
+      "Electrical Tools and Equipment"
+    ];
+    
+    titles.forEach(title => {
+      generateImage(gallery, title);
+    });
+
+    // Email form
     document.getElementById('emailForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value;
@@ -165,7 +311,7 @@
       const message = document.getElementById('message').value;
       
       const recipient = "lenkwemalema@gmail.com";
-      const subject = encodeURIComponent(`New Inquiry - ${name}`);
+      const subject = encodeURIComponent(`New Inquiry from Website - ${name}`);
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
       
       window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
